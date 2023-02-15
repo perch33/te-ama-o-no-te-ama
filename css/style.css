@@ -1,0 +1,79 @@
+* {
+    box-sizing: content-box;
+}
+
+:root {
+    --Macondo: 'Macondo', cursive;
+    --colorText: rgb(235, 212, 212);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+img {
+    max-width: 100%;
+    line-height: 0;
+}
+
+body {
+    background-color: rgb(255, 0, 0);
+}
+
+.boton {
+    text-align: center;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.boton_1 {
+    cursor: pointer;
+    margin-top: 45vh;
+    border: none;
+    box-shadow: 10px 10px 20px rgb(52, 48, 48);
+    border-radius: 30px;
+    padding: 2% 4%;
+    font-size: 30px;
+    font-family: var(--Macondo);
+    background-color: var(--colorText);
+    color: rgb(2, 3, 3);
+    font-weight: bolder;
+}
+
+.text {
+    font-family: var(--Macondo);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* happy */
+.reload {
+    width: 30px;
+    transition: all 1.5s;
+    cursor: pointer;
+}
+
+.sad,
+.happy {
+    text-align: center;
+    margin-top: 30vh;
+}
+
+
+.heart {
+    position: absolute;
+
+    width: 30px;
+    /*  transition: all 0.1s; */
+}
+
+
+
+
+
+.rotar {
+    transform: rotate(360deg);
+}
+
+.ocultar {
+    display: none;
+}
