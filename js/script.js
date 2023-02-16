@@ -1,6 +1,10 @@
 const heart = document.querySelector(".heart");
 
-const boton = document.querySelector(".boton");
+const boton = document.querySelector(".boton_1");
+
+const cajaBoton = document.querySelector(".boton");
+
+const textContent = document.querySelector(".text__content");
 
 const reload = document.querySelectorAll(".reload");
 
@@ -8,13 +12,29 @@ const happy = document.querySelector(".happy");
 
 const sad = document.querySelector(".sad");
 
+const body = document.querySelector(".body__background");
+
 let numberAleatory = Math.round(Math.random());
+
+const musicPrincipal = new Audio("assets/music/Lovely Piano Song.mp3");
+
+const musicSad = new Audio("assets/music/Blonde Redhead - recortado.mp3");
+
+const musicHappy = new Audio(
+  "assets/music/Tu Me Cambiaste La Vida recortado.mp3"
+);
+
+musicPrincipal.play();
+
+musicPrincipal.loop = true;
+
+musicPrincipal.volume = 0.5;
 
 let aleatory;
 
 const activator = () => {
   if (!aleatory) {
-    aleatory = setInterval(moveAleatory, 1000);
+    aleatory = setInterval(moveAleatory, 800);
   }
 };
 
@@ -23,6 +43,10 @@ const stopHappy = () => {
   aleatory = null;
   heart.classList.add("ocultar");
   happy.classList.remove("ocultar");
+  body.classList.replace("heightVh", "heightVh2");
+  musicPrincipal.pause();
+  musicHappy.play();
+  musicHappy.volume = 0.5;
 };
 
 const stopSad = () => {
@@ -30,6 +54,10 @@ const stopSad = () => {
   aleatory = null;
   heart.classList.add("ocultar");
   sad.classList.remove("ocultar");
+  body.classList.replace("heightVh", "heightVh2");
+  musicPrincipal.pause();
+  musicSad.play();
+  musicSad.volume = 0.5;
 };
 
 const moveAleatory = () => {
@@ -42,8 +70,11 @@ const moveAleatory = () => {
 };
 
 boton.addEventListener("click", () => {
-  boton.classList.add("ocultar");
+  cajaBoton.classList.add("ocultar");
   heart.classList.remove("ocultar");
+  textContent.classList.add("ocultar");
+  body.classList.add("heightVh");
+  moveAleatory();
   activator();
 });
 
@@ -54,7 +85,6 @@ heart.addEventListener("click", () => {
     stopSad();
   }
 });
-
 
 reload.forEach((reinicio) =>
   reinicio.addEventListener("click", () => {
